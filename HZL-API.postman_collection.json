@@ -1,0 +1,78 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Exam API",
+		"_postman_id": "ce3f3dec-c105-11fa-281a-f53c12405e90",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "API Write",
+			"request": {
+				"url": "http://localhost:8080/api/write",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"dataKey\":\"Test1\",\"dataValue\":\"8080\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Read API",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/api/read?key=Test1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"read"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "Test1",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Read all API",
+			"request": {
+				"url": "http://localhost:8080/api/all",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
