@@ -9,7 +9,7 @@ Build the application and create the runnable jar file.
 2. A jar file will be created under `target` directory. e.g `target/cluster-0.0.1-SNAPSHOT.jar`
 3. From the root directory run `java -jar target/cluster-0.0.1-SNAPSHOT.jar --server.port=8080`
 4. To create more nodes repeat step number three but use another value for the port. e.g. `java -jar target/cluster-0.0.1-SNAPSHOT.jar --server.port=8081`
-5. All the running nodes will be automatically detected and will part of the cluster.
+5. All the running nodes will be automatically detected and will be part of the cluster.
 
 Using the API
 --------------

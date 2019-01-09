@@ -29,6 +29,9 @@ public class HzlConfiguration {
     @Value("${time.to-live.seconds}")
     private int timeToLive;
 
+    @Value("${hzl.min.cluster-size:2}")
+    private String requiredClusterSize;
+
     @Bean
     public Config hazelCastConfig() {
         Config config = new Config();
@@ -39,6 +42,12 @@ public class HzlConfiguration {
                                 .setMaxSizeConfig(new MaxSizeConfig(maxConfigSize, MaxSizeConfig.MaxSizePolicy.FREE_HEAP_SIZE))
                                 .setEvictionPolicy(EvictionPolicy.LRU)
                                 .setTimeToLiveSeconds(timeToLive));
+        // When two or more nodes were started at the same time, it is likely that they will not see each other
+        // and 'We are started' will be printed multiple times.
+        // Having this property will make the Hazelcast instance waits for the enough nodes
+        // to form the cluster before starting each member one after another giving time for the nodes to discover or becomes
+        // aware of each other.
+        config.setProperty("hazelcast.initial.min.cluster.size", requiredClusterSize);
         return config;
     }
 }
