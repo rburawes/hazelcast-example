@@ -38,6 +38,10 @@ Read all the values of the map
 
     curl -s -H 'Content-Type: application/json' http://localhost:8080/api/all
     
-As an alternative to test the application, a Postman file `HZL-API.postman_collection.json` can be found under the root folder of this project.  Import the file to the Postman app and run the examples.  
+As an alternative to test the application, a Postman file `HZL-API.postman_collection.json` can be found under the root folder of this project.  Import the file to the Postman app and run the examples.
+
+Concurrent test
+----------------
+To the test the application concurrently, go the root directory and execute `mvn test`. See [ConcurrentClusterTest](https://github.com/rburawes/hazelcast-example/blob/master/src/test/java/com/demo/cluster/ConcurrentClusterTest.java) for more details.  
 
 
